@@ -7,4 +7,18 @@ img {
 .info {
     display: inline-block;
     margin-right: 50px;
+    width:35%;
+}
+
+.selected {
+    font-weight: bold;
+}
+
+a {
+    color:blue;
+    text-decoration: underline;
+}
+
+h4 {
+    font-weight: normal;
 }
