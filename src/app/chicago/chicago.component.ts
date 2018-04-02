@@ -8,12 +8,10 @@ import { Weather } from '../weather';
   styleUrls: ['./chicago.component.css']
 })
 export class ChicagoComponent implements OnInit {
-  weather: JSON;
   city: Weather;
   units: string;
   unitHtml: string;
   constructor(private _weatherService: WeatherService) {
-    this.weather
     this.city = new Weather();
     this.unitHtml = '<span>&#8451;</span>';
     this.units = 'celsius'

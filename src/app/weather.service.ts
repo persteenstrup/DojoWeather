@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Weather } from './weather';
 
-
-
 @Injectable()
 export class WeatherService {
   apikey: string
@@ -17,6 +15,7 @@ export class WeatherService {
     this.city = new Weather();
     this.units = 'celsius';
     this.unitHtml = '<span>&#8451;</span>'
+    console.log("service constructor fired")
   }
 
   giveData() {
@@ -24,12 +23,11 @@ export class WeatherService {
   }
 
   getWeather(location: string, wSynch_comp) {
-    //console.log(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${this.apikey}`)
+    console.log(this.units);
     this._http.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${this.apikey}`).subscribe(
       (res) => {
         this.apiresponse = res.json();
-        console.log(this.apiresponse)
-        if (this.units = 'celsius') {
+        if (this.units == 'celsius') {
           this.weatherMetric(this.apiresponse, wSynch_comp)
         }
         else { this.weatherImperial(this.apiresponse, wSynch_comp) }
