@@ -17,10 +17,6 @@ export class WeatherService {
     this.unitHtml = '<span>&#8451;</span>'
   }
 
-  giveData() {
-    return this.apiresponse
-  }
-
   getWeather(location: string, wSynch_comp) {
     this._http.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${this.apikey}`).subscribe(
       (res) => {
